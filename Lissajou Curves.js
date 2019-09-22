@@ -31,26 +31,33 @@ function draw() {
     let yPoint = radiusWidth/2 * sin(angleNow * (i-1) - HALF_PI);
 
     strokeWeight(8);
-    
     point(centre_X + xPoint, centre_Y + yPoint);
 
     strokeWeight(1);
     line(centre_X + xPoint,  0, centre_X + xPoint, 900);
 
-    strokeWeight(2);
-    centre_Y = centre_X;
-    centre_X = 50;
-    ellipse(centre_X, centre_Y, radiusWidth);
+    let xIntercept = centre_X + xPoint;
 
-    xPoint = radiusWidth/2 * cos(angleNow * (i-1) - HALF_PI);
-    yPoint = radiusWidth/2 * sin(angleNow * (i-1) - HALF_PI);
+    for(j=2; j<=numberRows+1; j++){
+      centre_Y = marginDistance + (j-1) * elementWidth + radiusWidth;
+      //centre_Y = centre_X;
+      centre_X = 50; 
+      xPoint = radiusWidth/2 * cos(angleNow * (i-1) - HALF_PI);
+      yPoint = radiusWidth/2 * sin(angleNow * (j-1) - HALF_PI);
+      let yIntercept = centre_Y + yPoint;
 
-    strokeWeight(8);
 
-    point(centre_X + xPoint, centre_Y + yPoint);
 
-    strokeWeight(1);
-    line(0,  centre_Y + yPoint, 900, centre_Y + yPoint);
+           strokeWeight(8);
+          if(i<=j){ 
+            strokeWeight(2);
+            ellipse(centre_X, centre_Y, radiusWidth);
+            line(0,  centre_Y + yPoint, 900, centre_Y + yPoint);
+            point(centre_X + xPoint, centre_Y + yPoint);
+         }
+    
+    point(xIntercept, yIntercept);
+    }
 
   }
 
