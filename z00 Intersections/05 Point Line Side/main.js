@@ -94,6 +94,8 @@ function reset(){
 
 function pointLineSide(inputVectorLine, checkPoint){
   //-1 is right, +1 is left
+  //from: https://stackoverflow.com/questions/1560492/how-to-tell-whether-a-point-is-to-the-right-or-left-side-of-a-line#:~:text=Using%20the%20equation%20of%20the,point%20is%20on%20the%20line.
+  
   let A = inputVectorLine.A;
   let B = inputVectorLine.B;
   let C = checkPoint;
